@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.niit.electroMart.Model.Cart;
 import com.niit.electroMart.Model.Category;
 import com.niit.electroMart.Model.Product;
 import com.niit.electroMart.Model.Supplier;
@@ -27,6 +28,7 @@ import com.niit.electroMart.Service.CategoryService;
 import com.niit.electroMart.Service.ProductService;
 import com.niit.electroMart.Service.SupplierService;
 import com.niit.electroMart.Service.UserDetailsService;
+import com.niit.electroMart.Service.UserService;
 
 @Controller
 public class PageController {
@@ -40,9 +42,7 @@ public class PageController {
 	@Autowired
 	private CartItemService cartItemService;
 	
-	@Autowired
-	private CartService cartService;
-
+	
 
 
 	
@@ -304,6 +304,11 @@ public class PageController {
 				
 		return "user/Cart";
 	}
+	
+
+	
+	
+
 	
 	@RequestMapping(value = {"/Product/AddToCart/{id}"})
 	public String ViewCart(@PathVariable("id")String id ,Model model){

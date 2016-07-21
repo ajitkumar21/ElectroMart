@@ -8,8 +8,10 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            
           </button>
-          <a class="navbar-brand" href="#">ELECTRO<span style="color:#708090;">-</span><span style="color:#696969;"><I>M<span style="color:red;">@</span>RT</I></span></a>
+          <a class="navbar-brand" href="#"><img src="${images}/19.jpg"  alt="" width="210" height="50"></a>
         </div>
         <div id="navbar" class="collapse navbar-collapse">
           <ul class="nav navbar-nav pull-left">
