@@ -37,7 +37,11 @@ public class CartItemServiceImpl implements CartItemService {
 		
 		cartItem.setUserId(user.getEmail_Id());
 		
+		cartItem.setImageUrl(product.getImageUrl());
+		
 		cartItem.setProductId(product.getId());
+		
+		cartItem.setProductName(product.getName());
 		
 		cartItem.setQuantity(1);
 		
@@ -58,7 +62,7 @@ public class CartItemServiceImpl implements CartItemService {
 		List<CartItem> cartItemList = this.cartItemDAO.getItemByUserId(user.getEmail_Id());
 		
 		for (CartItem cartItem : cartItemList) {
-			if(product.getId().equals(cartItem.getProductId())){
+			if(product.getId().equals(cartItem.getProductName())){
 				cartItem.setQuantity(cartItem.getQuantity() + 1);
 				cartItem.setTotalPrice(product.getPrice()*cartItem.getQuantity());
 				return;

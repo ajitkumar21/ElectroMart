@@ -109,7 +109,7 @@
 		<div class="form-group">
 		<div class="col-md-10 ">
 		<div class="col-md-10 ">
-		<span style="color:#696969;">New to Electro-M@rt &raquo; </span> <a href="${contextPath}/register"><b><span style="color:info;">  REGISTER NOW</span></b></a>
+		<span style="color:#696969;"><b>New to Electro-M@rt &raquo; </b></span> <a href="${contextPath}/register"><b><span style="color:red;">  REGISTER NOW</span></b></a>
 	    </div>
 		</div>
 		</div>

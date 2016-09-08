@@ -1,5 +1,7 @@
 package com.niit.electroMart.controller;
 
+import java.io.File;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
@@ -16,6 +18,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.niit.electroMart.Model.Cart;
 import com.niit.electroMart.Model.Category;
@@ -41,10 +44,9 @@ public class PageController {
 	
 	@Autowired
 	private CartItemService cartItemService;
-	
-	
 
-
+	@Autowired
+	private HttpServletRequest request;
 	
 	@Autowired
 	private ProductService productService;
@@ -52,6 +54,12 @@ public class PageController {
 	@Autowired
 	private SupplierService supplierService;
 	
+	@Autowired
+	private CartService cartService;
+
+	
+	
+
 	
 	
 	/*
@@ -153,10 +161,45 @@ public class PageController {
 			return "admin/Product";
 			
 		}
+		
+		if(!product.getFile().getOriginalFilename().equals("")){
+			product.setImageUrl(uploadImage(product.getFile(), product.getId()));
+		}
+
 		this.productService.addProduct(product);
 		
 		return "redirect:/ViewProduct" ;
 	}
+	
+	public String uploadImage(MultipartFile mutipart, String productId)
+	{
+		String upload = "/resources/images/product/";
+		
+		//get the file name 
+		String fileName = mutipart.getOriginalFilename();
+		
+		//get the real path and create the directory if it does not exists
+		
+		String realPath = request.getServletContext().getRealPath(upload);
+		if(!(new File(realPath).exists())){
+			new File(realPath).mkdirs();
+		}
+		
+		//transfer
+		String filePath = realPath + File.separator + productId + fileName.substring(fileName.lastIndexOf("."));
+		
+		File destination = new File(filePath);
+		
+		try {
+			
+			mutipart.transferTo(destination);
+			
+		} catch (Exception e) {}
+		
+		
+		return productId + fileName.substring(fileName.lastIndexOf("."));
+	}
+
 	
 	
 	@RequestMapping(value = {"/ViewProduct"})
@@ -293,14 +336,20 @@ public class PageController {
 	 * 
 	 *CART  
 	 * 
-	 */
+	 */;
 	
 	@RequestMapping(value ={"/Cart"})
 	public String viewCart(Model model){
 		
 		String userId = SecurityContextHolder.getContext().getAuthentication().getName();
 		
+		UserDetails user = this.userDetailsService.getByUsername(userId);
+		
+		Cart cart = this.cartService.getCart(user);
+		
 		model.addAttribute("cartList", this.cartItemService.getItemByUserId(userId));
+		
+		model.addAttribute("grandTotal", cart.getGrandTotal());
 				
 		return "user/Cart";
 	}
@@ -332,7 +381,22 @@ public class PageController {
 	   model.addAttribute("message", "Successfully deleted");
 	   return "redirect:/Cart";
 	 }
+	
+	
 	 
+	
+	@RequestMapping(value={"/Product/View/{id}"})
+	public String viewProduct(@PathVariable("id") String id, Model model){
+		
+		Product product = this.productService.get(id);
+				model.addAttribute("Product", product);
+		
+		return "user/View"; 
+	}
+
+	
+	
+
 
 }
 

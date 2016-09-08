@@ -85,16 +85,16 @@
 		<div class="form-group">
 		<label class="col-md-2 control-label"><span style="color:#696969;">Contact Number</span></label>
 		<div class="col-md-10 ">
-			<input type="password" placeholder="Contact number" name="contact number" required="required"  class="form-control" />
+			<input type="text" placeholder="Contact number" name="contact number" required="required"  class="form-control" />
 			<br>
 		</div>
 		</div>
 		
 		
 		<div class="form-group">
-		<label class="col-md-2 control-label"><span style="color:#696969;">ADDRESS</span></label>
+		<label class="col-md-2 control-label"><span style="color:#696969;">Shipping Address</span></label>
 		<div class="col-md-10 ">
-			<input type="password" placeholder="address" name="address" required="required"  class="form-control" />
+			<input type="text" placeholder="address" name="address" required="required"  class="form-control" />
 			<br>
 		</div>
 		</div>
@@ -103,18 +103,12 @@
 		<div class="form-group">
 		<label class="col-md-2 control-label"><span style="color:#696969;">Zip code</span></label>
 		<div class="col-md-10 ">
-			<input type="password" placeholder="zip code" name="zip code" required="required"  class="form-control" />
+			<input type="text" placeholder="zip code" name="zip code" required="required"  class="form-control" />
 			<br>
 		</div>
 		</div>
 		
-		<div class="form-group">
-		<label class="col-md-2 control-label"><span style="color:#696969;">Email_ID:</span></label>
-		<div class="col-md-10 ">
-			<input type="password" placeholder="Email_ID" name="" required="required"  class="form-control" />
-			<br>
-		</div>
-		</div>
+		
 		
 		<div class="form-group" align="left">
 		<div class="col-md-10 ">
@@ -125,7 +119,7 @@
 		<div class="col-md-10 ">
 		<div class="col-md-10 ">
 		
-			<button type="submit" value="submit" style="color:#656565;" class="btn btn-info btn-bg" >L o g i n</button>
+			<button type="submit" value="submit" style="color:#656565;" class="btn btn-success btn-bg" ><b>Proceed</b></button>
 			<br>
 			</div>
 			</div>

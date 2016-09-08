@@ -9,6 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.niit.electroMart.DAO.CartDAO;
 import com.niit.electroMart.Model.Cart;
 import com.niit.electroMart.Model.CartItem;
+import com.niit.electroMart.Model.UserDetails;
 
 @Service
 public class CartServiceImpl implements CartService {
@@ -40,21 +41,16 @@ public class CartServiceImpl implements CartService {
 
 	}
 
+
 	@Override
 	@Transactional
-	public void Cart() {
-		
-List<CartItem> cartItemList = this.cartItemService.getAllItem();
-		
-		double i = 0;
-		Cart cart;
-		
-		for (CartItem cartItem : cartItemList){
-			i = i + cartItem.getTotalPrice();
-			
-		}
+	public Cart getCart(UserDetails user) {
+		return this.cartDAO.getCart(user);
+	}
+
+	
 
 		
-	}
+	
 
 }

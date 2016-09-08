@@ -15,20 +15,20 @@
         </div>
         <div id="navbar" class="collapse navbar-collapse">
           <ul class="nav navbar-nav pull-left">
-            <li><a href="${contextPath}/index"><span class="glyphicon glyphicon-home"></span></a></li>
-            <li><a href="${contextPath}/aboutus"><b>ABOUT US</b></a></li>
-            <li><a href="${contextPath}/ViewProduct"><b>ACCESSORIES</b></a></li>
+            <li><a href="${contextPath}/index"><span style="color:#FFFFFF;"><span class="glyphicon glyphicon-home"></span></span></a></li>
+            <li><a href="${contextPath}/aboutus"><span style="color:#FFFFFF;"><b>ABOUT US</b></span></a></li>
+            <li><a href="${contextPath}/ViewProduct"><span style="color:#FFFFFF;"><b>ACCESSORIES</b></span></a></li>
             
 	        
             <sec:authorize access="hasRole('ROLE_ADMIN')">
-			<li><a href="${contextPath}/Product"><b>ADD PRODUCT</b></a></li>
-            <li><a href="${contextPath}/Category"><b>ADD CATEGORY</b></a></li>				
-			<li><a href="${contextPath}/Supplier"><b>ADD SUPPLIER</b></a></li>				
+			<li><a href="${contextPath}/Product"><span style="color:#FFFFFF;"><b>ADD PRODUCT</b></span></a></li>
+            <li><a href="${contextPath}/Category"><span style="color:#FFFFFF;"><b>ADD CATEGORY</b></span></a></li>				
+			<li><a href="${contextPath}/Supplier"><span style="color:#FFFFFF;"><b>ADD SUPPLIER</b></span></a></li>				
 		    </sec:authorize>
 		    
 		    
 		    <sec:authorize access="hasRole('ROLE_USER')">
-			<li><a href="${contextPath}/Cart"><span class="glyphicon glyphicon-shopping-cart">CART</span></a></li>
+			<li><a href="${contextPath}/Cart"><span style="color:#FFFFFF;"><span class="glyphicon glyphicon-shopping-cart">CART</span></span></a></li>
 		    </sec:authorize>				
 		    
 		    
@@ -38,13 +38,15 @@
           <ul class="nav navbar-nav pull-right">
           
           <sec:authorize access="isAnonymous()">
-          <li><a href="${contextPath}/login"><span class="glyphicon glyphicon-shopping-cart">CART</span></a></li>
-          <li><a href="${contextPath}/login"><span class="glyphicon glyphicon-user"> <b>LOGIN</b></span></a></li>
-          <li><a href="${contextPath}/register"><b>REGISTER</b></a></li>
+          <li><a href="${contextPath}/login"><span style="color:#FFFFFF;"><span class="glyphicon glyphicon-shopping-cart"> <b>CART</b></span></span></a></li>
+          <li><a href="${contextPath}/login"><span style="color:#FFFFFF;"><span class="glyphicon glyphicon-user"> <b>LOGIN</b></span></span></a></li>
+          <li><a href="${contextPath}/register"><span style="color:#FFFFFF;"><b>REGISTER</b></span></a></li>
           </sec:authorize>
           
           <sec:authorize access="isAuthenticated()">
-             <li><a href="${contextPath}/logout"><b>LOGOUT</b></a></li>
+             <li><a><span style="color:#FFFFFF;"><b>Hi  <span style="color:red;">${pageContext.request.userPrincipal.name }</span></b></span></a></li>
+             <li><a href="${contextPath}/logout"><span style="color:#FFFFFF;"><b>LOGOUT</b></span></a></li>
+             
 		  </sec:authorize>
           
           

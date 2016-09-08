@@ -48,7 +48,7 @@
 			<br>
 			<br>
 			
-			<div class="panel" align="center">
+			<div class="panel" align="center" >
 
 <p>
 

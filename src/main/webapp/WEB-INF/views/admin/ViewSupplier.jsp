@@ -59,25 +59,25 @@
 <table border=1 class = "table table-condensed">
 				<thead>
 					<tr>
-						<th align="center" width="120">Id</th>
-						<th align="center" width="120">Name</th>
-						<th align="center" width="200">Address</th>
-						<th align="center" width="120">Contact No.</th>
-						<th align="center" width="120">Email ID</th>
-						<th align="center" width="120">Delete</th>
-						<th align="center" width="120">Edit</th>
+						<th align="center" width="120"><span style="color:#FFFFFF;">Id</span></th>
+						<th align="center" width="120"><span style="color:#FFFFFF;">Name</span></th>
+						<th align="center" width="200"><span style="color:#FFFFFF;">Address</span></th>
+						<th align="center" width="120"><span style="color:#FFFFFF;">Contact No.</span></th>
+						<th align="center" width="120"><span style="color:#FFFFFF;">Email ID</span></th>
+						<th align="center" width="120"><span style="color:#FFFFFF;">Delete</span></th>
+						<th align="center" width="120"><span style="color:#FFFFFF;">Edit</span></th>
 					</tr>
 				</thead>
 				<tbody>
 					<c:forEach items="${supplierList}" var="user">
 						<tr>
-							<td style=" text-align: centre"><c:out value="${user.id}" /></td>
-							<td style=" text-align: centre"><c:out value="${user.name}" /></td>
-							<td style=" text-align: centre"><c:out value="${user.address}" /></td>
-							<td style=" text-align: centre"><c:out value="${user.contactNumber}" /></td>
-							<td style=" text-align: centre"><c:out value="${user.email_Id}" /></td>
-							<td style=" text-align: centre"><a href="${contextPath}/Supplier/delete/${user.id}">DELETE</a></td>
-							<td style=" text-align: centre"><a href="${contextPath}/Supplier/edit/${user.id}">EDIT</a></td>
+							<td style=" text-align: centre"><span style="color:#FFFFFF;"><c:out value="${user.id}" /></span></td>
+							<td style=" text-align: centre"><span style="color:#FFFFFF;"><c:out value="${user.name}" /></span></td>
+							<td style=" text-align: centre"><span style="color:#FFFFFF;"><c:out value="${user.address}" /></span></td>
+							<td style=" text-align: centre"><span style="color:#FFFFFF;"><c:out value="${user.contactNumber}" /></span></td>
+							<td style=" text-align: centre"><span style="color:#FFFFFF;"><c:out value="${user.email_Id}" /></span></td>
+							<td style=" text-align: centre"><span style="color:#FFFFFF;"><a class="btn btn-danger" href="${contextPath}/Supplier/delete/${user.id}" role="button">DELETE</a></span></td>
+							<td style=" text-align: centre"><span style="color:#FFFFFF;"><a class="btn btn-info" href="${contextPath}/Supplier/edit/${user.id}" role="button"> E D I T </a></span></td>
 						</tr>
 					</c:forEach>
 				</tbody>

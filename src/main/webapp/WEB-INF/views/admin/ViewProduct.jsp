@@ -41,7 +41,7 @@
     <![endif]-->
 </head>
 
-<body>
+<body ng-app="webapp">
 
 <%@ include file="../shared/menu.jsp"%>
 <br>
@@ -54,7 +54,7 @@
   
   <form class="navbar-form" role="search">
     <div class="input-group add-on">
-      <input type="text" class="form-control" placeholder="Search" name="srch-term" id="srch-term" >
+      <input type="text" class="form-control" placeholder="Search" ng-model="search" >
       <div class="input-group-btn">
         <button class="btn btn-default btn-btn-lg" type="submit"><i class="glyphicon glyphicon-search"></i></button>
       </div>
@@ -70,49 +70,63 @@
 
 
 
-<table border=1 class = "table table-condensed">
+<table border=1 class = "table table-condensed" ng-controller="mainController as ctrl">
 				<thead>
 					<tr>
-						<th align="center" width="120">Id</th>
-						<th align="center" width="120">Name</th>
-						<th align="center" width="200">Description</th>
-						<th align="center" width="200">Price</th>
-						<th align="center" width="120">Category Id</th>
-						<th align="center" width="120">Supplier Id</th>
+					    <sec:authorize access="hasRole('ROLE_ADMIN')">
+						<th align="center" width="120"><span style="color:#FFFFFF;">Id</span></th>
+						</sec:authorize>
+						<th align="center" width="120"><span style="color:#FFFFFF;">Image</span></th>
+						<th align="center" width="120"><span style="color:#FFFFFF;">Name</span></th>
+						<th align="center" width="200"><span style="color:#FFFFFF;">Description</span></th>
+						<th align="center" width="200"><span style="color:#FFFFFF;">Price</span></th>
+						
+						<sec:authorize access="hasRole('ROLE_ADMIN')">
+						<th align="center" width="120"><span style="color:#FFFFFF;">Category Id</span></th>
+						<th align="center" width="120"><span style="color:#FFFFFF;">Supplier Id</span></th>
+						</sec:authorize>
+						
 						<sec:authorize access="hasRole('ROLE_USER')">
-						<th align="center" width="120">View</th>
-						<th align="center" width="120">ADD to CART</th>
+						<th align="center" width="120"><span style="color:#FFFFFF;">View Product</span></th>
+						<th align="center" width="120"><span style="color:#FFFFFF;">ADD to CART</span></th>
 						</sec:authorize>
 						
 						
 						<sec:authorize access="hasRole('ROLE_ADMIN')">
-						   <th align="center" width="120">Delete</th>
-						   <th align="center" width="120">Edit</th>
+						   <th align="center" width="120"><span style="color:#FFFFFF;">Delete</span></th>
+						   <th align="center" width="120"><span style="color:#FFFFFF;">Edit</span></th>
 						</sec:authorize>
 						
 					</tr>
 				</thead>
-				<tbody style="background-color:white;">
-					<c:forEach items="${productList}" var="user">
-						<tr>
-							<td style=" text-align: centre"><c:out value="${user.id}" /></td>
-							<td style=" text-align: centre"><c:out value="${user.name}" /></td>
-							<td style=" text-align: centre"><c:out value="${user.description}" /></td>
-							<td style=" text-align: centre"><c:out value="${user.price}" /></td>
-							<td style=" text-align: centre"><c:out value="${user.categoryId}" /></td>
-							<td style=" text-align: centre"><c:out value="${user.supplierId}" /></td>
+				<tbody >
+
+						<tr ng-repeat="user in ctrl.user |  filter:search">
+						<sec:authorize access="hasRole('ROLE_ADMIN')">
+							<td style=" text-align: centre"><span style="color:#FFFFFF;">{{user.id}}</span></td>
+						</sec:authorize>
+						<td style=" text-align: centre"><span style="color:#FFFFFF;"><img ng-src="${images}/product/{{user.imageUrl}}" width="300px"></span></td>
+							<td style=" text-align: centre"><span style="color:#FFFFFF;">{{user.name}}</span></td>
+							<td style=" text-align: centre"><span style="color:#FFFFFF;">{{user.description}}</span></td>
+							<td style=" text-align: centre"><span style="color:#FFFFFF;"><i class="glyphicon glyphicon-euro"></i> {{user.price}}</span></td>
+							
+							<sec:authorize access="hasRole('ROLE_ADMIN')">
+							<td style=" text-align: centre"><span style="color:#FFFFFF;">{{user.categoryId}}</span></td>
+							<td style=" text-align: centre"><span style="color:#FFFFFF;">{{user.supplierId}}</span></td>
+							</sec:authorize>
+							
 							<sec:authorize access="hasRole('ROLE_USER')">
-							<td style=" text-align: centre"><a href="${contextPath}/Product/View/${user.id}">VIEW</a></td>
-							<td style=" text-align: centre"><a href="${contextPath}/Product/AddToCart/${user.id}">ADD</a></td>
+							<td style=" text-align: centre" ><a class="btn btn-info" href="${contextPath}/Product/View/{{user.id}}" role="button"><b>V I E W</b></a></td>
+							<td style=" text-align: centre" ><a class="btn btn-primary" href="${contextPath}/Product/AddToCart/{{user.id}}" role="button"><b> A D D </b></a></td>
 							</sec:authorize>
 							
 							<sec:authorize access="hasRole('ROLE_ADMIN')">
-							<td style=" text-align: centre"><a href="${contextPath}/Product/delete/${user.id}">DELETE</a></td>
-							<td style=" text-align: centre"><a href="${contextPath}/Product/edit/${user.id}">EDIT</a></td>
+							<td style=" text-align: centre"><a class="btn btn-danger" href="${contextPath}/Product/delete/{{user.id}}" role="button"><b>DELETE</b></a></td>
+							<td style=" text-align: centre"><a class="btn btn-info" href="${contextPath}/Product/edit/{{user.id}}" role="button"><b> E D I T </b></a></td>
 							</sec:authorize>
 							
 						</tr>
-					</c:forEach>
+
 				</tbody>
 			</table>
 			<%@ include file="../shared/footer.jsp"%>
@@ -124,6 +138,7 @@
 
 	<script src="${js}/jquery.min.js"></script>
 	<script src="${js}/bootstrap.min.js"></script>
-	
+	<script src="${js}/angular.min.js"></script>
+	<script src="${js}/app.js"></script>
 </body>
 </html>

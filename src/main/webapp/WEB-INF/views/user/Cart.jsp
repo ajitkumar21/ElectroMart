@@ -1,14 +1,13 @@
-
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <spring:url value="/resources/css" var="css"></spring:url>
 <spring:url value="/resources/images" var="images"></spring:url>
 <spring:url value="/resources/js" var="js"></spring:url>
 
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+	<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
-<c:set var="contextPath" value="${pageContext.request.contextPath}" />
+	<c:set var="contextPath" value="${pageContext.request.contextPath}"/>    
 
 <!DOCTYPE html>
 <html lang="en">
@@ -21,7 +20,7 @@
 <meta name="author" content="">
 <link rel="icon" href="../../favicon.ico">
 
-<title>CART</title>
+<title>PING</title>
 
 <!-- Bootstrap core CSS -->
 <link href="${css}/bootstrap.min.css" rel="stylesheet">
@@ -44,66 +43,59 @@
 
 <body>
 
-	<%@ include file="../shared/menu.jsp"%>
-	
-	<br>
-	<br>
-	<br>
-	
-	<div class= "container">
-<form:form action="${contextPath}/Cart" method="post">
-<div class="row">
-	<div class="col-md-offset-2 col-md-8">
-		<div class="panel panel-default">
-		
-		<div class="panel-header">
-		<h2 align="center" >Cart</h2>
-		</div>
-			
-			<div class="panel-body">
-			
-			<c:forEach items="${cartList}" var="user">
-		
-		<div class="form-group">
-		<label >Quantity:</label>
-		
-		<span><c:out value="${user.quantity}"/></span>	
-			
-		<label>Product ID:</label>
-		
-		<span><c:out value="${user.productId}"/></span>
-		
-		<%-- <label>Product Name:</label>
-		
-		<span><c:out value="${Products}"/></span> --%>
-		
-		<label>Total Price:</label>
-		
-		<span><c:out value="${user.totalPrice}"/></span>
-			
-			
-			<a href="${contextPath}/CartItem/delete/${user.id}">DELETE</a>
-			<br>
-			</div>
-			</c:forEach>
-			
-			<div class="form-group" align="right">
-			
-			<label>GRAND TOTAL:</label>
-		
-		<span><c:out value="${grandTotal}"></c:out></span>
-			
-			</div>
-				
-	</div>
-	</div>
-	</div>
-	</div>
-	</form:form>
-	</div>
-	
+<%@ include file="../shared/menu.jsp"%>
+<br>
+<br>
+<br>
+<br>
 
-	<%@ include file="../shared/footer.jsp"%>
+
+<div class="panel-header">
+<h2 align="center" ><b><span style="color:#D5D8DC;">CART</span></b></h2>
+</div>
+
+<br>
+<br>
+<br>
+
+
+<table border=1 class = "table table-condensed">
+				<thead>
+					<tr>
+						<th style=" text-align: center" align="center" ><span style="color:#FFFFFF;"></span></th>
+						<th style=" text-align: center" align="center" ><span style="color:#FFFFFF;">Quantity</span></th>
+						<th style=" text-align: center" align="center" ><span style="color:#FFFFFF;">Product Name</span></th>
+						<th style=" text-align: center" align="center" ><span style="color:#FFFFFF;">Total Price</span></th>
+						<th style=" text-align: center" align="center" ><span style="color:#FFFFFF;"></span></th>
+						
+					</tr>
+				</thead>
+				<tbody>
+					<c:forEach items="${cartList}" var="user">
+						<tr>
+						    <td style=" text-align: center" align="center"><span style="color:#FFFFFF;"><img src="${images}/product/${user.imageUrl}" width="200px"></span></td>
+							<td style=" text-align: center" align="center"><span style="color:#FFFFFF;"><c:out value="${user.quantity}" /></span></td>
+							<td style=" text-align: center" align="center"><span style="color:#FFFFFF;"><c:out value="${user.productName}" /></span></td>
+							<td style=" text-align: center" align="center"><span style="color:#FFFFFF;"><i class="glyphicon glyphicon-euro"></i> <c:out value="${user.totalPrice}" /></span></td>
+							<td style=" text-align: center" align="center"><span style="color:#FFFFFF;"><a class="btn btn-danger" href="${contextPath}/CartItem/delete/${user.id}" role="button"><span class="glyphicon glyphicon-trash"> REMOVE</span></a></span></td>
+							
+						</tr>
+					</c:forEach>
+				</tbody>
+			</table>
+			
+			<div class="form-group" align="center">
+			<label><h3><span style="color:#2874A6;"><b>GRAND TOTAL :</b></span></h3></label>
+		    <span style="color:#FFFFFF;"><span><i class="glyphicon glyphicon-euro"></i> <c:out value="${grandTotal}"></c:out></span></span>
+			</div>
+			
+			
+			<div class="form-group" align="center">
+			<button type="submit" value="checkout" style="color: white;" class="btn btn-success btn-bg"><b>CONTINUE SHOPPING</b></button>
+		    <button type="submit" value="checkout" style="color: white;" class="btn btn-warning btn-bg"><b>CHECKOUT</b></button>
+			</div>
+			
+			<%@ include file="../shared/footer.jsp"%>
 
 
 	<!-- Bootstrap core JavaScript
@@ -112,6 +104,6 @@
 
 	<script src="${js}/jquery.min.js"></script>
 	<script src="${js}/bootstrap.min.js"></script>
-
+	
 </body>
 </html>

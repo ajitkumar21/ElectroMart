@@ -1,12 +1,12 @@
 .carousel{
-margin-bottom:20px;
+margin-bottom:30px;
 margin-top:25px;
-margin-left:40px;
-margin-right:40px;
+margin-left:80px;
+margin-right:80px;
 }
 
 .carousel-inner > .item > img{
-       width:1260px;
+       width:1560px;
        height:560px;
        margin: 0 auto;
      }
@@ -14,7 +14,13 @@ margin-right:40px;
 .navbar-default {
     background-color:#060606;
     border-color: #060606;
-}
+    opacity: 0.7;
+    filter:alpha(opacity=70);
+    
+    
+  }
+  
+
 
 .navbar-text >a{
 color:inherit;
@@ -37,6 +43,10 @@ margin-left:10px;
 font-size: 25px;
 
 }
+.navbar-fixed-top {
+min-height: 70px;
+margin-bottom:40px;
+}
 
 
             
@@ -45,6 +55,7 @@ body{
 
 margin: 0px 30px 0px 30px;
 background-color:#060606;
+
 padding-top:10px;
 padding-bottom:10px;
 
@@ -62,8 +73,8 @@ color: #FFFFFF;
 }
 
 .btn-default {
-background-color: #1A242F;
-border color : #2C3E50;
+background-color:#1A242F;
+border color :#2C3E50;
 color: #FFFFFF;
 }
 
@@ -82,7 +93,20 @@ background-color:transparent;
 }
 
 .navbar-default{
-margin-top:10px;
+margin-top:0px;
 margin-bottom:10px;
+}
+
+.thumbnail{
+	width: 100%;
+	overflow: hidden;
+}
+
+img{
+-webkit-transition:all 0.5s ease;	
+}
+
+img:hover{
+	transform: scale(1.3);
 }
 

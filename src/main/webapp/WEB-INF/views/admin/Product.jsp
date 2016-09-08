@@ -55,7 +55,7 @@
 	
 
 <div class="container">
-<form:form action="${contextPath}/Product/add" modelAttribute="Product" method="post">
+<form:form action="${contextPath}/Product/add" modelAttribute="Product" method="post" enctype="multipart/form-data">>
 
 <div class="row">
 	<div class="col-md-offset-2 col-md-8">
@@ -122,6 +122,17 @@
 			<br>
 		</div> 
 		</div>
+		
+		<div class="form-group">
+		<label class="col-md-2 control-label">Upload Images for Product:</label>
+		<div class="col-md-10">
+			<form:input type ="file" path ="file"  class="form-control-file" id= "uploadImages" />
+			<form:hidden path="imageUrl"/>
+			<br>
+			<br>
+		</div>
+		</div>
+		
 		
 		<div class="form-group" align="center">
 			<button  type="submit" value="add" class="btn btn-info btn-md" >A D D</button>

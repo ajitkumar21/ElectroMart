@@ -1,9 +1,6 @@
 <footer>
-
 <hr>
-       
- 
       
-  <p>&copy; 2015 Company, Inc.Privacy Terms</p>
+  <p>&copy; <span style="color:#656565;">2016 Company, Inc.Privacy Terms</span></p>
  
      </footer>

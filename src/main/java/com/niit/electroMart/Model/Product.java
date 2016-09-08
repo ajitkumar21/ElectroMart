@@ -2,12 +2,15 @@ package com.niit.electroMart.Model;
 
 import java.util.UUID;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 import org.hibernate.validator.constraints.NotBlank;
 import org.springframework.stereotype.Component;
+import org.springframework.web.multipart.MultipartFile;
 
 
 @Entity
@@ -32,6 +35,29 @@ public class Product {
 	
 	private double price;
 	
+	@Transient
+	private MultipartFile file;
+	
+	@Column(name="imageUrl")
+	private String imageUrl;
+
+	
+	public MultipartFile getFile() {
+		return file;
+	}
+
+	public void setFile(MultipartFile file) {
+		this.file = file;
+	}
+
+	public String getImageUrl() {
+		return imageUrl;
+	}
+
+	public void setImageUrl(String imageUrl) {
+		this.imageUrl = imageUrl;
+	}
+
 	@NotBlank(message="Please select a Category")
 	private String categoryId;
 	

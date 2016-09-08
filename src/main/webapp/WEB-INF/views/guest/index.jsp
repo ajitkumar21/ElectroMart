@@ -113,26 +113,72 @@
     
         <div class="col-lg-4">
         <img class="img-circle" src="${images}/8.jpg" alt="" width="240" height="200">
-          <h2>TELEVISIONS</h2>
-          <p>Latest brands and types of televisions available.(4k ,LCD,LED,PLASM TV'S.)</p>
-          <p><a class="btn btn-default" href="${contextPath}/ViewProduct" role="button">View details &raquo;</a></p>
+          <h3><span style="color:#FFFFFF;">TELEVISIONS</span></h3>
+          <p><span style="color:#FFFFFF;">Latest brands and types of televisions available.(4k ,LCD,LED,PLASM TV'S.)</span></p>
+          <p><a class="btn btn-info" href="${contextPath}/ViewProduct" role="button">View details &raquo;</a></p>
         </div>
         
         <div class="col-lg-4">
           <img class="img-circle" src="${images}/9.jpg" alt="" width="240" height="200">
-          <h2>MOBILES</h2>
-          <p>Latest brands and types of mobile phones available.(ios , microsoft , android etc)</p>
-          <p><a class="btn btn-default" href="${contextPath}/ViewProduct" role="button">View details &raquo;</a></p>
+          <h3><span style="color:#FFFFFF;">MOBILES</span></h3>
+          <p><span style="color:#FFFFFF;">Latest brands and types of mobile phones available.(ios , microsoft , android etc)</span></p>
+          <p><a class="btn btn-info" href="${contextPath}/ViewProduct" role="button">View details &raquo;</a></p>
         </div>
         
         <div class="col-lg-4">
           <img class="img-circle" src="${images}/10.jpg" alt="" width="240" height="200">
-          <h2>LAPTOPS</h2>
-          <p>Latest brands and types of Laptops available.(macbook ,sony , Acer, LENOVO ,HCL ,HP.)</p>
-          <p><a class="btn btn-default" href="${contextPath}/ViewProduct" role="button">View details &raquo;</a></p>
+          <h3><span style="color:#FFFFFF;">LAPTOPS</span></h3>
+          <p><span style="color:#FFFFFF;">Latest brands and types of Laptops available.(macbook ,sony , Acer, LENOVO ,HCL ,HP.)</span></p>
+          <p><a class="btn btn-info" href="${contextPath}/ViewProduct" role="button">View details &raquo;</a></p>
         </div>
         </div>
         </div>
+        
+        <br>
+        <br>
+        
+        <div class="container" >
+		<div class="row">
+		<div class="col-md-3">
+		<div class="thumbnail">
+		<img src="${images}/10.jpg" width="280" height="200">
+		</div>
+		</div>
+		
+		<div class="col-md-3">
+		<div class="thumbnail">
+		<img src="${images}/11.jpg" width="280" height="200">
+		</div>
+		</div>
+		
+		<div class="col-md-3">
+		<div class="thumbnail">
+		<img src="${images}/14.jpg" width="280" height="200">
+		</div>
+		</div>
+		
+		
+		
+		<div class="col-md-3">
+		<div class="thumbnail">
+		<img src="${images}/15.jpg" width="280" height="200">
+		</div>
+		</div>
+		
+		<div class="col-md-3">
+		<div class="thumbnail">
+		<img src="${images}/9.jpg" width="280" height="200">
+		</div>
+		</div>
+		
+		<div class="col-md-3">
+		<div class="thumbnail">
+		<img src="${images}/16.jpg" width="280" height="200">
+		</div>
+		</div>
+		
+		</div>
+	</div>
 
 <%@ include file="../shared/footer.jsp" %>
 

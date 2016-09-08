@@ -1,10 +1,14 @@
 package com.niit.electroMart.Model;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Transient;
+
+import org.springframework.web.multipart.MultipartFile;
 
 
 @Entity
@@ -17,6 +21,12 @@ public class CartItem {
 	
 	private String productId;
 	
+	private String productName;
+	
+
+	
+	
+
 	private int quantity;
 	
 	
@@ -25,9 +35,31 @@ public class CartItem {
 	
 	private String userId;
 	
+	@Column(name="imageUrl")
+	private String imageUrl;
+	
+	@Transient
+	private MultipartFile file;
+	
 	
 
 	
+
+	public MultipartFile getFile() {
+		return file;
+	}
+
+	public void setFile(MultipartFile file) {
+		this.file = file;
+	}
+
+	public String getImageUrl() {
+		return imageUrl;
+	}
+
+	public void setImageUrl(String imageUrl) {
+		this.imageUrl = imageUrl;
+	}
 
 	public String getUserId() {
 		return userId;
@@ -67,6 +99,14 @@ public class CartItem {
 
 	public void setTotalPrice(double totalPrice) {
 		this.totalPrice = totalPrice;
+	}
+	
+	public String getProductName() {
+		return productName;
+	}
+
+	public void setProductName(String productName) {
+		this.productName = productName;
 	}
 	
 
