@@ -11,8 +11,7 @@
 * Security
 
 ###In these project I have specified roles
-> ADMIN
-> > An Admin can
+* ADMIN
 * USERS ( Customers )
 
 
