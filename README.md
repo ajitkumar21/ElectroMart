@@ -18,7 +18,7 @@
 > > An Admin can perform CRUD operations i.e An Admin can Create/Add products, An Admin can Update products and an Admin can Delete Products. 
 
 > Role of a User
-> > A User can view Products, he can add desired products to his cart only he registers himself with valid registeration details.On successfull registration he can add products to cart and can procceed for checkouts by providing necessary details(shipping address , billing address and card details etc )
+> > A User can view Products, He can add desired products to his cart only if he registers himself with valid registeration details. On successfull registration he can add products to cart and can procceed for checkouts by providing necessary details(Shipping address , Billing address and Card details etc )
 
 
  
