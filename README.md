@@ -2,7 +2,7 @@
 
 ###Today, ecommerce across the world (including India), is growing at a rapid pace. More and more businesses are moving towards adapting E-commerce.
 
-The project on E-Commerce ( ElectroMart ), enables  to implement the various aspects of developing E-Commerce applications. A functioning e-commerce site  have various key features like
+####The project on E-Commerce ( ElectroMart ), enables  to implement the various aspects of developing E-Commerce applications. A functioning e-commerce site  have various key features like
 
 * Attractive Web pages
 * Responsive web pages
