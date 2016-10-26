@@ -7,6 +7,6 @@ The project on E-Commerce, enables  to implement the various aspects of developi
 * Attractive Web pages
 * Responsive web pages
 * Web pages with giving details of products
-* Web-pages with various views like “company-wise”, “Price-wise” ,"description of products" etc.
+* Web-pages with various views like “company-wise”, “Price-wise” ,"description of products" ,"quantity of product details" etc
 * Security
 
