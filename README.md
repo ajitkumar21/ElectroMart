@@ -10,7 +10,7 @@ The project on E-Commerce ( ElectroMart ), enables  to implement the various asp
 * Web-pages with various views like “company-wise”, “Price-wise” ,"description of products" ,"quantity of product details" etc
 * Security
 
-##in these project I have specified roles
+##In these project I have specified roles
 * ADMIN
  
 
