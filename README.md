@@ -14,7 +14,7 @@
 * ADMIN
 * USERS ( Customers )
 
-> Admin 
+> Role of an Admin 
 > > An Admin can perform CRUD operations i.e An Admin can Create/Add products, An Admin can Update products and an Admin can Delete Products. 
 
 
